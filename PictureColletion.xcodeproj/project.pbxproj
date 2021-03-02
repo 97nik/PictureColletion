@@ -68,16 +68,12 @@
 		11CFD04E25EA87E300ABB801 /* PictureColletion */ = {
 			isa = PBXGroup;
 			children = (
-				11CFD04F25EA87E300ABB801 /* AppDelegate.swift */,
-				11CFD05125EA87E300ABB801 /* SceneDelegate.swift */,
-				11CFD05525EA87E300ABB801 /* Main.storyboard */,
-				11CFD07B25EA8E4300ABB801 /* PictureCell.swift */,
-				11CFD07225EA8AA300ABB801 /* Models */,
-				11CFD06D25EA895A00ABB801 /* Managers */,
+				11DA2FD725EE56FC0096242B /* Storyboards */,
 				11CFD06825EA891B00ABB801 /* View */,
-				11CFD05825EA87E800ABB801 /* Assets.xcassets */,
-				11CFD05A25EA87E800ABB801 /* LaunchScreen.storyboard */,
-				11CFD05D25EA87E800ABB801 /* Info.plist */,
+				11CFD06D25EA895A00ABB801 /* Managers */,
+				11CFD07225EA8AA300ABB801 /* Models */,
+				11DA2FD525EE56C00096242B /* Sources */,
+				11DA2FD625EE56D80096242B /* SupportingFiles */,
 			);
 			path = PictureColletion;
 			sourceTree = "<group>";
@@ -105,8 +101,36 @@
 			children = (
 				11CFD07F25EA909F00ABB801 /* Photo.swift */,
 				11CFD06F25EA8A9C00ABB801 /* SearchResponseTags.swift */,
+				11CFD07B25EA8E4300ABB801 /* PictureCell.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		11DA2FD525EE56C00096242B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				11CFD05825EA87E800ABB801 /* Assets.xcassets */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		11DA2FD625EE56D80096242B /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				11CFD05125EA87E300ABB801 /* SceneDelegate.swift */,
+				11CFD04F25EA87E300ABB801 /* AppDelegate.swift */,
+				11CFD05D25EA87E800ABB801 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		11DA2FD725EE56FC0096242B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				11CFD05525EA87E300ABB801 /* Main.storyboard */,
+				11CFD05A25EA87E800ABB801 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,7 +360,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 95ZUNS462R;
-				INFOPLIST_FILE = PictureColletion/Info.plist;
+				INFOPLIST_FILE = PictureColletion/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -355,7 +379,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 95ZUNS462R;
-				INFOPLIST_FILE = PictureColletion/Info.plist;
+				INFOPLIST_FILE = PictureColletion/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

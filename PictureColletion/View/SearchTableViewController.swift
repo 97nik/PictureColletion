@@ -7,10 +7,13 @@
 
 import UIKit
 
-class SearchTableViewController: UITableViewController, UISearchBarDelegate {
+class SearchTableViewController: UITableViewController {
     
     var networkManager = NetworkManager()
     var tags = [Tag]()
+    private var timer: Timer?
+    
+    var searchsText: String = ""
 
     let searhController = UISearchController(searchResultsController: nil)
     override func viewDidLoad() {
@@ -32,8 +35,13 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let tagVC = segue.destination as! ShowPictursCollectionViewController
         
+        if !searchsText.isEmpty {
+            tagVC.tagUrl = searchsText
+            searchsText = ""
+        } else {
         let indexPath = tableView.indexPathForSelectedRow!
         tagVC.tagUrl = tags[indexPath.row].content
+        }
 
 
     }
@@ -65,7 +73,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         return cell
     }
     
-
+  
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -111,4 +119,41 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     }
     */
 
+}
+
+extension  SearchTableViewController: UISearchBarDelegate {
+    
+  
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+       performSegue(withIdentifier: "pickPhotoCollectionSegue", sender: nil)
+
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        
+        searchsText = searchText
+        if searchText.isEmpty {
+            searchsText = ""
+        }
+       // guard let cityName = textField?.text else { return }
+//        if searchText != "" {
+////                self.networkWeatherManager.fetchCurrentWeather(forCity: cityName)
+//            let searchTexts = searchText.split(separator: " ").joined(separator: "%20")
+        
+        
+//        timer?.invalidate()
+//        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+//            self.networkService.fetchPhotos(searchText: searchText) { [weak self] (searchResults) in
+//                DispatchQueue.main.async {
+//                    self?.photos = searchResults.photos.photo
+////                    print("!!!")
+////                    print(self?.photos)
+//                self?.collectionView.reloadData()
+//                }
+//            }
+//        })
+        
+
+}
 }

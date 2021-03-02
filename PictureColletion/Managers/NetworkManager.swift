@@ -35,9 +35,9 @@ class NetworkManager {
         }
         task.resume()
     }
-    func fetchPhoto(searchText: String, competion: @escaping (SearchResponsePhoto) -> Void)  {
+    func fetchPhoto(searchText: String, competion: @escaping (ResponePhoto) -> Void)  {
 
-        let urlString = "https://api.flickr.com/services/rest/?method=flickr.tags.getClusterPhotos&api_key=cd63055762f72303292e8256d3068d31&tag=\(searchText)&format=json&per_page=10&extras=url_z,url_q&nojsoncallback=1"
+        let urlString = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=cd63055762f72303292e8256d3068d31&tags=\(searchText)&format=json&extras=url_z,url_q&nojsoncallback=1"
 
         print(urlString)
         guard let url = URL(string: urlString) else { return }
@@ -48,7 +48,7 @@ class NetworkManager {
 
                 let decoder = JSONDecoder()
                 do {
-                    let objects = try decoder.decode(SearchResponsePhoto.self, from: data)
+                    let objects = try decoder.decode(ResponePhoto.self, from: data)
                     print("objects: ", objects)
                     competion(objects)
                 } catch let error as NSError {

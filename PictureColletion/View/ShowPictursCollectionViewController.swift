@@ -21,7 +21,8 @@ class ShowPictursCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         navigationItem.title = tagUrl
-        
+        print("????????")
+        print(tagUrl)
         networkManager.fetchPhoto(searchText: tagUrl ) { [weak self] (searchResults) in
             DispatchQueue.main.async {
                 self?.photos = searchResults.photos.photo
@@ -76,7 +77,7 @@ class ShowPictursCollectionViewController: UICollectionViewController {
        // cell.photoImageView.image =  #imageLiteral(resourceName: "2")
         
         DispatchQueue.global().async {
-            guard let imageUrl = URL(string: photo.urlZ) else { return }
+            guard let imageUrl = URL(string: photo.urlZ ?? photo.urlQ) else { return }
             guard let imageData = try? Data(contentsOf: imageUrl) else { return }
 
             DispatchQueue.main.async {
